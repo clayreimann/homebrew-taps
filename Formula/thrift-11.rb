@@ -16,6 +16,7 @@ class Thrift11 < Formula
     system "./bootstrap.sh" unless build.stable?
 
     args = %W[
+      --program-suffix=-11
       --disable-debug
       --disable-tests
       --prefix=#{prefix}
@@ -34,7 +35,6 @@ class Thrift11 < Formula
     ENV.cxx11 if ENV.compiler == :clang
 
     # Install as thrift-11
-    ENV["PACKAGE_NAME"] = "thrift-11"
 
     # Don't install extensions to /usr:
     ENV["PY_PREFIX"] = prefix
